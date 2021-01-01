@@ -1,59 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Room homepage</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
-  Home
-  Shop
-  About
-  Contact
-
-  Discover innovative ways to decorate
-
-  We provide unmatched quality, comfort, and style for property owners across the country. 
-  Our experts combine form and function in bringing your vision to life. Create a room in your 
-  own style with our collection and make your property a reflection of you and what you love.
-
-  Shop now
-
-  We are available all across the globe
-
-  With stores all over the world, it's easy for you to find furniture for your home or place of business. 
-  Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
-  store locator. Any questions? Don't hesitate to contact us today.
-
-  Shop now
-
-  Manufactured with the best materials
-
-  Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
-  to ensure that every product is made as perfect and as consistent as possible. With three decades of 
-  experience in this industry, we understand what customers want for their home and office.
-
-  Shop now
-
-  About our furniture
-
-  Our multifunctional collection blends design and function to suit your individual taste.
-  Make each room unique, or pick a cohesive theme that best express your interests and what
-  inspires you. Find the furniture pieces you need, from traditional to contemporary styles
-  or anything in between. Product specialists are available to help you create your dream space.
-  
+  <div class="upper-section">
+    <div class="slide-hero">
+      <div class="nav-bar">
+        <img class="nav-logo" src="./images/logo.svg" />
+        <a class="nav-link" href="#"> Home </a>
+        <a class="nav-link" href="#"> Shop </a>
+        <a class="nav-link" href="#"> About </a>
+        <a class="nav-link" href="#"> Contact </a>
+      </div>
+    </div>
+    <div class="text-hero">
+      <h1>Discover innovative ways to decorate</h1>
+      <p>
+        We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine
+        form and function in bringing your vision to life. Create a room in your own style with our collection and make
+        your property a reflection of you and what you love.
+      </p>
+      <a href="#"> Shop now </a>
+      <img src="./images/icon-arrow.svg" style="padding-left: 20px;"> </img>
+      <div class="arrow-block-group">
+        <div class="arrow-block black-arrow-block" onclick="changeImage()">
+          <img src="./images/icon-angle-left.svg"> </img>
+        </div>
+        <div class="arrow-block black-arrow-block" onclick="changeImage()">
+          <img src="./images/icon-angle-right.svg"> </img>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lower-section">
+   <div class="img-01">
+     <img src="./images/image-about-dark.jpg" alt="dark">
+   </div>
+   <div class="text-block">
+    <h1> About our furniture </h1>
+    <p>
+    Our multifunctional collection blends design and function to suit your individual taste.
+    Make each room unique, or pick a cohesive theme that best express your interests and what
+    inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+    or anything in between. Product specialists are available to help you create your dream space.
+  </p> 
+  </div>
+   <div class="img-02">
+    <img src="./images/image-about-light.jpg" alt="light">
+   </div>
+  </div>
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Nick Zixian Song</a>.
   </div>
 </body>
+
 </html>
+
+<script>
+  function changeImage() {
+      const text1 = 'Discover innovative ways to decorate'
+      const text2 = 'Discover innovative ways to decorate'
+      const text3 = 'Discover innovative ways to decorate'
+
+      const element = document.getElementsByClassName('slide-hero')[0];
+      let index = 2;
+      if (element.style.length > 0){
+        index = (element.style.backgroundImage.match(/\d/)[0] + 1) % 3 + 1;
+      }
+      element.style.backgroundImage = `url('./images/desktop-image-hero-${index}.jpg')`;
+  }
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+
+  @media only screen and (max-width: 375px) {
+      .nav-link {
+        display: none;
+      }
+
+      .nav-logo {
+        flex: 1;
+      }
+
+      .slide-hero {
+        flex: 1 0 100% !important;
+      } 
+  }
+
+  body {
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Spartan', sans-serif;
+  }
+  
+  .upper-section {
+    display: flex;
+  }
+
+  .slide-hero {
+    flex: 1 0 60%;
+    background-image: url('./images/desktop-image-hero-1.jpg');
+    background-size: cover;
+    height: 500px;
+  }
+
+  .nav-bar {
+    width: 50%;
+    display: flex;
+    padding: 50px;
+    padding-top: 50px;
+  }
+
+  .nav-logo {
+    flex: 1;
+    padding-right: 50px;
+  }
+
+  .nav-link {
+    flex: 1;
+    color: white;
+  }
+
+  .nav-link:hover {}
+
+  .text-hero {
+    flex: 1 1 40%;
+    padding: 100px 90px;
+    color: rgb(189, 189, 189);
+    position: relative;
+  }
+
+  .text-hero h1 {
+    color: black;
+    font-size: 29px;
+  }
+
+  .text-hero a {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: rgb(161, 161, 161);
+  }
+
+  .text-hero img {
+    fill: rgb(161, 161, 161);;
+  }
+
+  .arrow-block-group {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .arrow-block {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .black-arrow-block {
+    background-color: black;
+  }
+
+  .black-arrow-block:hover {
+    background-color: rgb(161, 161, 161);
+  }
+
+  .lower-section {
+    display: flex;
+  }
+
+  .text-block {
+    padding: 50px 50px;
+  }
+
+  p {
+     color: rgb(161, 161, 161);
+     line-height: 1.5rem;
+  }
+
+  .text-block h1 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+</style>
