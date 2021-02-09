@@ -1,0 +1,70 @@
+:root {
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+}
+
+.App {
+  text-align: center;
+}
+
+
+.circle1 {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(215, 219, 229);
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top:100px;
+  left:52%;
+  pointer-events:none;
+  z-index: -1;
+}
+
+.circle2 {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(215, 219, 229);
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top:110px;
+  left:45%;
+  pointer-events:none;
+  z-index: -1;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  padding-top: 150px;
+  /* background-color: #282c34; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  font-weight:600;
+}
+
+.App-header h2 {
+  color: rgb(46, 52, 82);
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+.App-header h3 {
+  color: rgb(157, 164, 176);
+  font-size:15px
+}
