@@ -9,9 +9,55 @@
 
 .Modal-container {
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
   margin-top: 50px;
+}
+
+.Modal-upper {
+  border-bottom: 0.2px solid rgb(242, 241, 245);
+  padding-bottom: 30px;
+}
+
+.Modal-lower {
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.Modal-lower-button button {
+  background-color:rgb(41, 51, 86);
+  height:50px;
+  width: 190px;
+  color: rgb(188, 198, 239);
+  border-radius:30px;
+  border-color:rgb(41, 51, 86);
+  font-size:15px;
+}
+
+.Modal-lower-button button:hover {
+  background-color:rgb(57, 70, 117);
+  color: rgb(202, 210, 241);
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding-left: 1.3em;
+  padding-bottom: 1em;
+  color: rgb(157, 164, 176);
+}
+li:before {
+  content: "\f00c"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -2.5em; /* same as padding-left set on li */
+  width: 2.5em; /* same as padding-left set on li */
+  color: rgb(99, 212, 195);
 }
 
 .Modal__first-row {
@@ -21,8 +67,8 @@
   letter-spacing: 2px;
   display:flex;
   align-items: center;
-  /* float: left; */
 }
+
 
 .Modal__first-row h1 {
   color: rgb(45, 50 ,79)
@@ -30,6 +76,34 @@
 
 .scroll {
   width:100%
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  background: rgb(99, 212, 195);
+  border: 1px solid rgb(99, 212, 195);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: rgb(186, 237, 232); 
+  width: 100%;
+  height: 8.4px;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: rgb(235,239,249);
+  border-radius: 1.3px;
+}
+
+
+.billingTypeSwitch h5 {
+  color: rgb(157, 164, 176)
 }
 
 .gap {
@@ -45,7 +119,6 @@
   flex-direction:row;
   align-items:center;
   justify-content:center;
-
 }
 
 .Modal {
