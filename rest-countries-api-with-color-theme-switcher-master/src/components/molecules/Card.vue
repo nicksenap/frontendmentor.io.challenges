@@ -1,7 +1,7 @@
 <template>
-  <div class="card">
+  <div :class="[isDarkTheme ? 'card--darkTheme' : '', 'card']">
     <img :src="countryData.flag" />
-    <div class="card__desc">
+    <div :class="[isDarkTheme ? 'card__desc--darkTheme' : '', 'card__desc']">
       <h2>{{ countryData.name }}</h2>
       <h3>Population: {{ countryData.population }}</h3>
       <h3>Region: {{ countryData.region }}</h3>

@@ -1,29 +1,33 @@
 <template>
   <nav-bar />
-  <card :countryData="store.state.countries[0]" />
-  <card :countryData="store.state.countries[1]" />
-  <card :countryData="store.state.countries[2]" />
-  <card :countryData="store.state.countries[3]" />
+  <card-container :countryDatas="countryData" />
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, reactive } from 'vue';
   import { useStore } from 'vuex';
   import NavBar from './components/molecules/NavBar.vue';
-  import Card from './components/molecules/Card.vue';
+  import CardContainer from './components/organisms/CardContainer.vue';
+  import { Country } from './types/country.interface';
 
   export default defineComponent({
     name: 'App',
     setup() {
       const store = useStore();
-      return { store };
+      store.dispatch('fetchAllCountries');
+      const countryDatas = reactive<Array<Country>>(store.state.countries.slice(0, 100));
+      return { store, countryDatas };
     },
     components: {
       NavBar,
-      Card
+      CardContainer
     },
-    created() {
-      this.store.dispatch('fetchAllCountries');
+    methods: {
+      getCountriesByRegion(Region: string) {
+        this.countryDatas = this.store.state.countries.filter(
+          (country: Country) => country.region == Region
+        );
+      }
     }
   });
 </script>

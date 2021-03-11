@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <card v-for="" />
-    <card :countryData="store.state.countries[0]" />
-    <card :countryData="store.state.countries[1]" />
-    <card :countryData="store.state.countries[2]" />
-    <card :countryData="store.state.countries[3]" />
+  <div :class="[isDarkTheme ? 'cardContainer--darkTheme' : '', 'cardContainer']">
+    <card v-for="(countryData, index) in countryDatas" :countryData="countryData" :key="index" />
   </div>
 </template>
 
@@ -20,7 +16,7 @@
       const store = useStore();
       return { store };
     },
-    props: { countryData: { type: Object as Array<Country>, required: true } },
+    props: { countryDatas: { type: Array, required: true } },
     computed: {
       ...mapState(['isDarkTheme'])
     }
