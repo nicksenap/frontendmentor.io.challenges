@@ -1,20 +1,24 @@
 <template>
-  <div class="nav"> 
-      <p> Where in the world? </p>
-      <DarkthemeToggle />
-    </div>
+  <div :class="[isDarkTheme ? 'nav--darkTheme' : '', 'nav']">
+    <h2>Where in the world?</h2>
+    <DarkthemeToggle />
+  </div>
 </template>
 
 <script lang="ts">
-import DarkthemeToggle from "../atoms/DarkthemeToggle.vue";
-import { defineComponent } from 'vue';
-export default defineComponent({
-    components:{
-        DarkthemeToggle
+  import DarkthemeToggle from '../atoms/DarkthemeToggle.vue';
+  import { defineComponent } from 'vue';
+  import { mapState, useStore } from 'vuex';
+  export default defineComponent({
+    setup() {
+      const store = useStore();
+      return { store };
+    },
+    components: {
+      DarkthemeToggle
+    },
+    computed: {
+      ...mapState(['isDarkTheme'])
     }
-})
+  });
 </script>
-
-<style>
-
-</style>
