@@ -1,0 +1,12 @@
+.card {
+  border-radius: 4px;
+  border: 0.1rem solid grey;
+
+  img {
+    // width: 25%;
+    // max-width: 20rem;
+  }
+  &__desc {
+    padding: 1rem 2rem;
+  }
+}
