@@ -1,6 +1,8 @@
 <template>
-  <nav-bar />
-  <card-container :countryDatas="countryData" />
+  <div>
+    <nav-bar />
+    <card-container :countryDatas="store.state.countries.slice(0, 100)" />
+  </div>
 </template>
 
 <script lang="ts">

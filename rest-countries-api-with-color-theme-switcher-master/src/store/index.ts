@@ -5,7 +5,7 @@ import { State } from '../types/state.interface';
 
 export default createStore<State>({
   state: {
-    isDarkTheme: false,
+    isDarkTheme: true,
     countries: []
   },
 
