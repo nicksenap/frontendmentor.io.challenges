@@ -1,0 +1,15 @@
+@use './colors';
+
+.darkThemeToggle {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 110px;
+  cursor: pointer;
+
+  &__darkTheme {
+    color: colors.$color-white;
+    background-color: colors.$color-dark-blue;
+  }
+}

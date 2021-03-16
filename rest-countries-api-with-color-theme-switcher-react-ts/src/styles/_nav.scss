@@ -1,0 +1,15 @@
+@use './colors';
+
+.nav {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 2rem;
+  border-bottom: 0.1rem colors.$color-very-light-gray-border solid;
+  //   background-color: $color-dark-blue;
+  &--darkTheme {
+    background-color: colors.$color-dark-blue;
+    color: colors.$color-white;
+  }
+}

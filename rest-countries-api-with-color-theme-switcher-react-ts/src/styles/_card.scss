@@ -1,0 +1,34 @@
+@use './colors';
+
+.card {
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 3px colors.$color-very-light-gray-border;
+  -webkit-box-shadow: 0 0 3px colors.$color-very-light-gray-border;
+  box-shadow: 0 0 3px colors.$color-very-light-gray-border;
+  max-width: 20rem;
+  margin-bottom: 5rem;
+  &--darkTheme {
+    -moz-box-shadow: 0 0 3px colors.$color-very-dark-blue-dark;
+    -webkit-box-shadow: 0 0 3px colors.$color-very-dark-blue-dark;
+    box-shadow: 0 0 3px colors.$color-very-dark-blue-dark;
+    background-color: colors.$color-dark-blue;
+  }
+  img {
+    max-width: 20rem;
+    max-height: 50%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &__desc {
+    padding: 1rem 2rem 4rem 2rem;
+    background-color: colors.$color-white;
+    &--darkTheme {
+      background-color: colors.$color-dark-blue;
+      color: colors.$color-white;
+    }
+  }
+
+  h3 {
+    margin: 2px;
+  }
+}
