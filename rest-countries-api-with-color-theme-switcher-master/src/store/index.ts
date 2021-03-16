@@ -4,7 +4,7 @@ import { Country } from '../types/country.interface';
 
 export default createStore({
   state: {
-    isDarkTheme: false,
+    isDarkTheme: true,
     countries: []
   },
   mutations: {
