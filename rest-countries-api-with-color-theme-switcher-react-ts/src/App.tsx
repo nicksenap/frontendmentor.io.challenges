@@ -3,23 +3,25 @@ import { Navbar } from "./app/components/molecules/NavBar";
 import { CardContainer } from "./app/components/organisms/CardContainer";
 import {
   fetchAllCountries,
-  selectAllCountriesData,
+  filteredCountryDataData,
 } from "./store/modules/countryDataSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { darkTheme } from "./store/modules/darkThemeSlice";
 import "./App.css";
 import "../src/styles/style.scss";
 
 function App() {
+  const isDarkTheme = useSelector(darkTheme);
   const dispatch = useDispatch();
+  const appClassName = `App ${isDarkTheme ? "App--darkTheme" : ""}`;
   useEffect(() => {
     dispatch(fetchAllCountries());
-  });
-  const countryDatas = useSelector(selectAllCountriesData);
-
+  }, [dispatch]);
+  const filteredCountryDatas = useSelector(filteredCountryDataData);
   return (
-    <div className="App">
+    <div className={appClassName}>
       <Navbar />
-      <CardContainer countryDatas={countryDatas.slice(0, 100)} />
+      <CardContainer countryDatas={filteredCountryDatas.slice(0, 100)} />
     </div>
   );
 }

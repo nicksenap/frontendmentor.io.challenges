@@ -1,0 +1,7 @@
+@use './colors';
+
+.App {
+    &--darkTheme {
+        background-color: colors.$color-very-dark-blue-dark;
+    }
+}

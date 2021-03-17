@@ -1,0 +1,44 @@
+@use './colors';
+
+.dropdown {
+    width: 10%;
+    &__button {
+        width:100%;
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        &--darkTheme {
+            background-color: colors.$color-dark-blue;
+            color: colors.$color-white;
+          }
+        &__button:hover {
+            outline: none;
+            box-shadow: none;
+        } 
+    }
+
+    &__list {
+        ul {
+            list-style-type: none;
+            padding: 15px;
+            margin: 0px;
+        }
+
+        li {
+            // text-align: ;
+            padding-bottom: 5px;
+        }
+        position: absolute;
+        background-color: colors.$color-white;
+        border-radius: 5px;
+        margin-top: 10px;
+        width:9.5rem;
+        &--darkTheme {
+          background-color: colors.$color-dark-blue;
+          color: colors.$color-white;
+        }
+        // background-color: colors.$color-
+    }
+}

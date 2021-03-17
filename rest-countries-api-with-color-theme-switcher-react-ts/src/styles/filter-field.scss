@@ -1,0 +1,11 @@
+@use './constants';
+
+.filter-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px constants.$x-axis-padding;
+    padding-top: 30px;
+    &__darkTheme{
+
+    }
+}
