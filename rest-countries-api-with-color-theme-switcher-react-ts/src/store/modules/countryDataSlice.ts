@@ -8,12 +8,14 @@ interface countryDataState {
   allCountryData: Country[];
   filteredCountryData: Country[];
   regions: Region[];
+  selectedRegion: Region;
 }
 
 const initialState: countryDataState = {
   allCountryData: [],
   filteredCountryData: [],
   regions: [],
+  selectedRegion: Region.ALL,
 };
 
 export const countryDataSlice = createSlice({
@@ -25,9 +27,13 @@ export const countryDataSlice = createSlice({
       state.filteredCountryData = action.payload;
     },
     filterCountries: (state, action: PayloadAction<string>) => {
-      state.filteredCountryData = state.allCountryData.filter(
-        (country) => country.region === action.payload
-      );
+      if (action.payload === Region.ALL) {
+        state.filteredCountryData = state.allCountryData;
+      } else {
+        state.filteredCountryData = state.allCountryData.filter(
+          (country) => country.region === action.payload
+        );
+      }
     },
     setRegions: (state) => {
       const rawRegion = state.allCountryData.map((country) => country.region);

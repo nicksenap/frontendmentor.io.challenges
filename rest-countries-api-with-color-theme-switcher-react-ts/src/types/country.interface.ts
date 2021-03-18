@@ -39,6 +39,7 @@ export interface Language {
 }
 
 export enum Region {
+  ALL = "ALL",
   Africa = "Africa",
   Americas = "Americas",
   Asia = "Asia",
