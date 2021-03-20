@@ -6,6 +6,8 @@ node_js:
   - 8
   - 7
   - 6
+before_script:
+  - cd rest-countries-api-with-color-theme-switcher-react-ts/
 install:
   - yarn install
 script:
