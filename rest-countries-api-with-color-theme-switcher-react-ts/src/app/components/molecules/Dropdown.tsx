@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { useState } from "react";
 import { DropdownList } from "../atoms/DropdownList";
 import { useSelector } from "react-redux";
 import { darkTheme } from "../../../store/modules/darkThemeSlice";

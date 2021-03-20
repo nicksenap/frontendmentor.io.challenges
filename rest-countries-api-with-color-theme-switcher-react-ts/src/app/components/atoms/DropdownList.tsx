@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { darkTheme } from "../../../store/modules/darkThemeSlice";
-import React, { Dispatch } from "react";
+import React from "react";
 import { filterCountries } from "../../../store/modules/countryDataSlice";
 
 interface DropdownListProps {
@@ -30,7 +30,12 @@ export function DropdownList({
       <ul>
         {items.map((item, index) => {
           return (
-            <li key={index} onClick={handleClick} value={item}>
+            <li
+              className={dropDownListItemClassName}
+              key={index}
+              onClick={handleClick}
+              value={item}
+            >
               {item}
             </li>
           );
