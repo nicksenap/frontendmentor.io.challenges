@@ -7,9 +7,10 @@ import _ from "lodash";
 interface countryDataState {
   allCountryData: Country[];
   filteredCountryData: Country[];
-  selectedCountry: Country | null;
+  selectedCountry: Country | undefined;
   regions: Region[];
   selectedRegion: Region;
+  selectedCountryCode: string;
 }
 
 const initialState: countryDataState = {
@@ -17,7 +18,8 @@ const initialState: countryDataState = {
   filteredCountryData: [],
   regions: [],
   selectedRegion: Region.ALL,
-  selectedCountry: null,
+  selectedCountry: undefined,
+  selectedCountryCode: "",
 };
 
 export const countryDataSlice = createSlice({
@@ -32,6 +34,7 @@ export const countryDataSlice = createSlice({
       const selectedCountry = state.allCountryData.find(
         (country) => country.alpha2Code === action.payload
       );
+      state.selectedCountry = selectedCountry;
     },
     filterCountriesByRegion: (state, action: PayloadAction<Region>) => {
       if (action.payload === Region.ALL) {
@@ -55,9 +58,6 @@ export const countryDataSlice = createSlice({
       const rawRegion = state.allCountryData.map((country) => country.region);
       state.regions = _.uniq(rawRegion).filter((region) => region !== "");
     },
-    setCountry: (state, action: PayloadAction<Country>) => {
-      state.selectedCountry = action.payload;
-    },
   },
 });
 
@@ -66,12 +66,15 @@ export const {
   setRegions,
   filterCountriesByRegion,
   filterCountriesByName,
+  getCountryByCode,
 } = countryDataSlice.actions;
 export const selectAllCountriesData = (state: RootState) =>
   state.countryData.allCountryData;
 export const filteredCountryDataData = (state: RootState) =>
   state.countryData.filteredCountryData;
 export const regionsData = (state: RootState) => state.countryData.regions;
+export const selectedCountryData = (state: RootState) =>
+  state.countryData.selectedCountry;
 
 export const fetchAllCountries = (): AppThunk => (dispatch) => {
   axios
@@ -79,7 +82,8 @@ export const fetchAllCountries = (): AppThunk => (dispatch) => {
     .then((response) => {
       dispatch(setCountries(response.data));
     })
-    .then(() => dispatch(setRegions()));
+    .then(() => dispatch(setRegions()))
+    .then(() => {});
 };
 
 export default countryDataSlice.reducer;
