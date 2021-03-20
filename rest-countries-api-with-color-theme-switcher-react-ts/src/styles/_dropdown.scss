@@ -20,19 +20,27 @@
   }
 
   &__list {
+    &__item {
+      padding: 5px;
+      border-radius: 5px;
+      padding-bottom: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: colors.$color-very-light-gray;
+      }
+      &--darkTheme {
+        &:hover {
+          background-color: colors.$color-dark-blue-hover;
+        }
+      }
+    }
+
     ul {
       list-style-type: none;
       padding: 15px;
       margin: 0px;
     }
 
-    li {
-      padding-bottom: 5px;
-    }
-
-    li:hover {
-      background-color: colors.$color-dark-blue-hover;
-    }
     position: absolute;
     background-color: colors.$color-white;
     border-radius: 5px;

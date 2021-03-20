@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { darkTheme } from "../../../store/modules/darkThemeSlice";
 import React from "react";
-import { filterCountries } from "../../../store/modules/countryDataSlice";
+import { filterCountriesByRegion } from "../../../store/modules/countryDataSlice";
 
 interface DropdownListProps {
   items: string[];
@@ -22,7 +22,7 @@ export function DropdownList({
   }`;
   const handleClick = (e: any) => {
     const payload = e.target.innerText;
-    dispatch(filterCountries(payload));
+    dispatch(filterCountriesByRegion(payload));
     setShouldDropDownShow(false);
   };
   return (

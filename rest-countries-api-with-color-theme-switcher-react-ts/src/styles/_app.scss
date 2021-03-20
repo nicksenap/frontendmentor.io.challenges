@@ -1,7 +1,10 @@
 @use './colors';
 
 .App {
-    &--darkTheme {
-        background-color: colors.$color-very-dark-blue-dark;
-    }
+  min-height: 100vh;
+  height: auto;
+  font-family: "Nunito Sans", sans-serif;
+  &--darkTheme {
+    background-color: colors.$color-very-dark-blue-dark;
+  }
 }

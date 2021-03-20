@@ -1,11 +1,13 @@
 @use './constants';
+@use './colors';
 
 .filter-field {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px constants.$x-axis-padding;
-    padding-top: 30px;
-    &__darkTheme{
-
-    }
+  display: flex;
+  justify-content: space-between;
+  padding: 0px constants.$x-axis-padding;
+  padding-top: 30px;
+  background-color: colors.$color-very-light-gray;
+  &--darkTheme {
+    background-color: colors.$color-very-dark-blue-dark;
+  }
 }

@@ -7,6 +7,7 @@ import _ from "lodash";
 interface countryDataState {
   allCountryData: Country[];
   filteredCountryData: Country[];
+  selectedCountry: Country | null;
   regions: Region[];
   selectedRegion: Region;
 }
@@ -16,6 +17,7 @@ const initialState: countryDataState = {
   filteredCountryData: [],
   regions: [],
   selectedRegion: Region.ALL,
+  selectedCountry: null,
 };
 
 export const countryDataSlice = createSlice({
@@ -26,7 +28,12 @@ export const countryDataSlice = createSlice({
       state.allCountryData = action.payload;
       state.filteredCountryData = action.payload;
     },
-    filterCountries: (state, action: PayloadAction<string>) => {
+    getCountryByCode: (state, action: PayloadAction<string>) => {
+      const selectedCountry = state.allCountryData.find(
+        (country) => country.alpha2Code === action.payload
+      );
+    },
+    filterCountriesByRegion: (state, action: PayloadAction<Region>) => {
       if (action.payload === Region.ALL) {
         state.filteredCountryData = state.allCountryData;
       } else {
@@ -35,10 +42,21 @@ export const countryDataSlice = createSlice({
         );
       }
     },
+    filterCountriesByName: (state, action: PayloadAction<string>) => {
+      if (action.payload === "") {
+        state.filteredCountryData = state.allCountryData;
+      } else {
+        state.filteredCountryData = state.allCountryData.filter((country) =>
+          country.name.toLowerCase().includes(action.payload.toLowerCase())
+        );
+      }
+    },
     setRegions: (state) => {
       const rawRegion = state.allCountryData.map((country) => country.region);
       state.regions = _.uniq(rawRegion).filter((region) => region !== "");
-      console.log(state.regions);
+    },
+    setCountry: (state, action: PayloadAction<Country>) => {
+      state.selectedCountry = action.payload;
     },
   },
 });
@@ -46,7 +64,8 @@ export const countryDataSlice = createSlice({
 export const {
   setCountries,
   setRegions,
-  filterCountries,
+  filterCountriesByRegion,
+  filterCountriesByName,
 } = countryDataSlice.actions;
 export const selectAllCountriesData = (state: RootState) =>
   state.countryData.allCountryData;

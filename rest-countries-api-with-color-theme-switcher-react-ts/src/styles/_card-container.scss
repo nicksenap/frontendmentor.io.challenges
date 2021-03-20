@@ -1,11 +1,15 @@
 @use './colors';
+@use './mixins';
 
 .cardContainer {
   display: flex;
   justify-content: space-between;
-  padding: 45px 100px;
+  padding: 0px 27px;
   flex-wrap: wrap;
   background-color: colors.$color-very-light-gray;
+  @include mixins.respond-to("medium") {
+    padding: 45px 100px;
+  }
   &--darkTheme {
     background-color: colors.$color-very-dark-blue-dark;
   }
