@@ -7,7 +7,8 @@ import {
   getCountryByCode,
   regionsData,
 } from "../../../store/modules/countryDataSlice";
-import { useHistory } from "react-router-dom";
+import {BackButton  } from "../atoms/BackButton";
+
 
 interface Params {
   alpha2Code: string;
@@ -24,20 +25,21 @@ export function CountryDetail() {
   }, [alpha2Code, dispatch, regionsDataSelect]);
 
   const selectedCountry = useSelector(selectedCountryData);
-  const history = useHistory();
-  const handleClick = () => {
-    history.push(`/`);
-  };
+  const countryDetailContainerClassName = `country-detail__container ${isDarkTheme ? 'country-detail__container--darkTheme' : ''}`
+  const countryDetailClassName = `country-detail ${isDarkTheme ? 'country-detail--darkTheme' : ''}`
 
   return (
-    <div className="">
-      <button className="" onClick={handleClick}>
-        Back
-      </button>
-      <div>
+    <div className={countryDetailClassName}>
+      <div className="country-detail__button-box">
+      <BackButton />
+      </div>
+      <div className={countryDetailContainerClassName}>
+        <div className="country-detail__container__img-box">
         <img src={selectedCountry?.flag} alt={selectedCountry?.name} />
-        <div className="">
+        </div>
+        <div>
           <h2> {selectedCountry?.name}</h2>
+          <div className="country-detail__container__desc-box">
           <div>
             <h3>Native Name: {selectedCountry?.nativeName}</h3>
             <h3>Population: {selectedCountry?.population}</h3>
@@ -56,6 +58,7 @@ export function CountryDetail() {
                 <> {l.name},</>
               ))}
             </h3>
+          </div>
           </div>
         </div>
       </div>

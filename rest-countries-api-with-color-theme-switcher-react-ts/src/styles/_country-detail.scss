@@ -1,0 +1,34 @@
+@use './colors';
+
+.country-detail {
+  background-color: colors.$color-very-light-gray;
+  &--darkTheme {
+    background-color: colors.$color-very-dark-blue-dark;
+  }
+  &__button-box {
+    padding: 1.875rem 7rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    &--darkTheme {
+      color: colors.$color-white;
+    }
+
+    &__img-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__desc-box {
+      display: flex;
+    }
+
+    & > * {
+      flex-basis: 50%;
+    }
+  }
+}
