@@ -18,12 +18,20 @@ export function Card({ countryData }: CardProps) {
   const handleClick = () => history.push(`/detail/${countryData.alpha2Code}`);
   return (
     <div className={cardClassName} onClick={handleClick}>
-      <img src={countryData.flag} alt="Flag" />
+      <div className="card__img-box">
+        <img src={countryData.flag} alt="Flag" />
+      </div>
       <div className={cardDescClassName}>
         <h2>{countryData.name}</h2>
-        <h3>Population: {countryData.population}</h3>
-        <h3>Region: {countryData.region}</h3>
-        <h3>Capital: {countryData.capital}</h3>
+        <h3>
+          Population: <div className="slim-text"> {countryData.population}</div>
+        </h3>
+        <h3>
+          Region: <div className="slim-text">{countryData.region}</div>
+        </h3>
+        <h3>
+          Capital: <div className="slim-text">{countryData.capital}</div>
+        </h3>
       </div>
     </div>
   );

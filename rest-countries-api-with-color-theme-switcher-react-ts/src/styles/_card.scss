@@ -5,8 +5,15 @@
   -moz-box-shadow: 0 0 3px colors.$color-very-light-gray-border;
   -webkit-box-shadow: 0 0 3px colors.$color-very-light-gray-border;
   box-shadow: 0 0 3px colors.$color-very-light-gray-border;
-  max-width: 20rem;
+  max-width: 30rem;
+  width: 22%;
   margin-bottom: 5rem;
+  &__img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &--darkTheme {
     -moz-box-shadow: 0 0 3px colors.$color-very-dark-blue-dark;
     -webkit-box-shadow: 0 0 3px colors.$color-very-dark-blue-dark;
@@ -14,7 +21,7 @@
     background-color: colors.$color-dark-blue;
   }
   img {
-    max-width: 20rem;
+    max-width: 30rem;
     max-height: 50%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

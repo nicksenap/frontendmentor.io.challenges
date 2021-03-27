@@ -41,21 +41,21 @@ export function CountryDetail() {
           <h2> {selectedCountry?.name}</h2>
           <div className="country-detail__container__desc-box">
           <div>
-            <h3>Native Name: {selectedCountry?.nativeName}</h3>
-            <h3>Population: {selectedCountry?.population}</h3>
-            <h3>Region: {selectedCountry?.region}</h3>
-            <h3>Sub Region: {selectedCountry?.subregion}</h3>
-            <h3>Capital: {selectedCountry?.capital}</h3>
+            <h3>Native Name:<div className='slim-text'> {selectedCountry?.nativeName}</div></h3>
+            <h3>Population:<div className='slim-text'>  {selectedCountry?.population}</div></h3>
+            <h3>Region: <div className="slim-text"> {selectedCountry?.region}</div></h3>
+            <h3>Sub Region: <div className="slim-text">{selectedCountry?.subregion}</div> </h3>
+            <h3>Capital:<div className="slim-text"> {selectedCountry?.capital}</div></h3>
           </div>
           <div className="">
-            <h3> Top Level Domain: {selectedCountry?.topLevelDomain}</h3>
+            <h3> Top Level Domain: <div className="slim-text">{ selectedCountry?.topLevelDomain}</div></h3>
             <h3>
-              Currencies: {selectedCountry?.currencies.map((c) => c.name)}
+              Currencies: {selectedCountry?.currencies.map((c) => <div className="slim-text"> {c.name} </div>)}
             </h3>
             <h3>
               Language:
               {selectedCountry?.languages.map((l) => (
-                <> {l.name},</>
+                <div className="slim-text"> {l.name},</div>
               ))}
             </h3>
           </div>
