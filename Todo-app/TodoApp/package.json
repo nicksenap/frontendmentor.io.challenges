@@ -10,9 +10,15 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-native-fontawesome": "^0.2.6",
     "react": "17.0.1",
+    "react-favicon": "^0.0.20",
     "react-native": "0.64.0",
-    "react-native-bouncy-checkbox": "^2.0.0"
+    "react-native-bouncy-checkbox": "^2.0.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-svg-transformer": "^0.14.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -41,5 +47,10 @@
       "json",
       "node"
     ]
-  }
+  },
+  "rnpm": {
+    "assets": [
+	    "./assets/fonts/"
+    ]
+}
 }

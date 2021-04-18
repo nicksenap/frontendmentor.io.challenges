@@ -16,5 +16,11 @@ export const TodoInput: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  todoInputContainer: {flex: 1, padding: 20, flexDirection: 'row'},
+  todoInputContainer: {
+    flex: 1,
+    padding: 20,
+    flexDirection: 'row',
+    zIndex: 3,
+    // position: 'absolute',
+  },
 });

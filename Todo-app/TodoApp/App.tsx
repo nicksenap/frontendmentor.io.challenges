@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 import {TodoInput} from './components/TodoInput';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {TodoHeader} from './components/TodoHeader';
 
 const Section: React.FC<{title: string}> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -49,7 +50,6 @@ const Section: React.FC<{title: string}> = ({children, title}) => {
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -57,6 +57,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <TodoHeader />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
