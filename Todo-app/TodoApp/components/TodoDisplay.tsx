@@ -18,7 +18,12 @@ export const TodoDisplay: React.FC<TodoDisplayPros> = props => {
 
 const styles = StyleSheet.create({
   todoDisplayContainer: {
-    flex: 1,
+    flexDirection: 'row',
     padding: 20,
+    borderColor: 'lightgrey',
+    borderWidth: 1,
+    alignItems: 'center',
+    backgroundColor: 'white',
+    // borderRadius: 5,
   },
 });

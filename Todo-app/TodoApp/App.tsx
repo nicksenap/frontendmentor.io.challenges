@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -8,47 +9,21 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
-import {TodoInput} from './components/TodoInput';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {TodoDisplay} from './components/TodoDisplay';
 import {TodoHeader} from './components/TodoHeader';
-
-const Section: React.FC<{title: string}> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import {data} from './mockData';
 
 const App = () => {
+  const [task, setTask] = useState(data);
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -58,11 +33,19 @@ const App = () => {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <TodoHeader />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <TodoInput />
-      </ScrollView>
+      <View style={{padding: 20}}>
+        <View style={{height: 600, borderRadius: 5, top: -50}}>
+          {task.map((d, index) => {
+            return (
+              <TodoDisplay
+                isChecked={d.isChecked}
+                TodoContent={d.TodoContent}
+                key={index}
+              />
+            );
+          })}
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
