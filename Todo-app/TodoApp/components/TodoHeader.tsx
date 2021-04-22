@@ -3,7 +3,7 @@ import {View, ImageBackground, Text, StyleSheet} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {TodoInput} from './TodoInput';
 import {faMoon} from '@fortawesome/free-solid-svg-icons';
-import {HEADER_FONT_SIZE} from '../constants';
+import {HEADER_FONT_SIZE, LETTER_SPACING} from '../utilities/constants';
 
 export interface TodoHeaderProps {
   style?: object;
@@ -27,7 +27,7 @@ export const TodoHeader: React.FC<TodoHeaderProps> = props => {
           />
         </View>
         <View style={styles.todoInputContainer}>
-          <TodoInput style={{backgroundColor: 'white', flex: 1}} />
+          <TodoInput style={styles.todoInput} />
         </View>
       </ImageBackground>
     </View>
@@ -51,5 +51,13 @@ const styles = StyleSheet.create({
     height: 70,
     width: '100%',
   },
-  headerText: {color: 'white', fontSize: HEADER_FONT_SIZE, letterSpacing: 5},
+  todoInput: {
+    backgroundColor: 'white',
+    flex: 1,
+  },
+  headerText: {
+    color: 'white',
+    fontSize: HEADER_FONT_SIZE,
+    letterSpacing: LETTER_SPACING,
+  },
 });
