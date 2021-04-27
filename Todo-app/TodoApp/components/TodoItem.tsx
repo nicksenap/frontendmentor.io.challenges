@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {checkboxStyle} from '../utilities/sharedStyles';
@@ -9,20 +9,22 @@ export interface TodoDisplayPros {
   toggleCheck: (id: number) => void;
 }
 
-export const TodoDisplay: React.FC<TodoDisplayPros> = props => {
-  const [TodoChecked, setTodoChecked] = useState(props.todoItem.isChecked);
+export const TodoItem: React.FC<TodoDisplayPros> = props => {
   const handlePress = () => {
+    console.log(props.todoItem.id);
     props.toggleCheck(props.todoItem.id);
-    setTodoChecked(!TodoChecked);
   };
   return (
     <View style={styles.todoDisplayContainer}>
       <BouncyCheckbox
         onPress={handlePress}
-        isChecked={TodoChecked}
+        isChecked={props.todoItem.isChecked}
         iconStyle={checkboxStyle}
         text={props.todoItem.TodoContent}
-        textStyle={[styles.TodoText, TodoChecked && styles.TodoTextDone]}
+        textStyle={[
+          styles.TodoText,
+          props.todoItem.isChecked && styles.TodoTextDone,
+        ]}
       />
     </View>
   );
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 20,
     borderColor: 'lightgrey',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     alignItems: 'center',
     backgroundColor: 'white',
   },

@@ -7,6 +7,7 @@ import {HEADER_FONT_SIZE, LETTER_SPACING} from '../utilities/constants';
 
 export interface TodoHeaderProps {
   style?: object;
+  addTask: any;
 }
 
 export const TodoHeader: React.FC<TodoHeaderProps> = props => {
@@ -27,7 +28,7 @@ export const TodoHeader: React.FC<TodoHeaderProps> = props => {
           />
         </View>
         <View style={styles.todoInputContainer}>
-          <TodoInput style={styles.todoInput} />
+          <TodoInput style={styles.todoInput} addTask={props.addTask} />
         </View>
       </ImageBackground>
     </View>

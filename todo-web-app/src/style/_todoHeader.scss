@@ -1,0 +1,20 @@
+.todoHeader {
+    background-image: url('../asset/bg-desktop-light.jpg');
+    background-position: top;
+    background-size: cover;
+    &__panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        h1 {
+            color: white;
+            letter-spacing:7px;
+        }
+    }
+
+    &__addTodoContainer {
+        display: flex;
+        justify-content:center;
+    }
+}
