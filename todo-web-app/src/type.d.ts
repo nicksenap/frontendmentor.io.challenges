@@ -10,4 +10,5 @@ export interface ContextType {
     toggleDarkTheme: () => void;
     saveTodos: (todo: Todo) => void
     updateTodo: (id: number) => void;
+    removeTodo: (id: number) => void
 }

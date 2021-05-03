@@ -33,18 +33,30 @@ export const TodoProvider: FC<ReactNode> = ({children}) => {
     const updateTodo = (id: number) => {
         todos.forEach((todo: Todo) => {
           if (todo.id === id) {
-            todo.isChecked = true;
+            todo.isChecked = !todo.isChecked;
             setTodos([...todos]);
           }
         });
       };
+
+      const removeTodo = (id: number) => {
+        setTodos(todos.filter(t => t.id !== id));
+      };
+
 
       const toggleDarkTheme = () => {
           setDarkTheme(!darkTheme);
       }
 
     return (
-        <TodoContext.Provider value={{ todos, saveTodos, updateTodo, darkTheme, toggleDarkTheme }}>
+        <TodoContext.Provider 
+        value={{ todos,
+                 saveTodos,
+                 updateTodo,
+                 removeTodo,
+                 darkTheme,
+                 toggleDarkTheme,
+                 }}>
           {children}
         </TodoContext.Provider>
       );
