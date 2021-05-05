@@ -1,0 +1,24 @@
+@use './header';
+@use './font';
+@use './color';
+@use './hero';
+@use './counts';
+@use './illustration';
+@use './signin';
+@use './footer';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+}

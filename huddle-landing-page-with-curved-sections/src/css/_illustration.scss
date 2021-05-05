@@ -1,0 +1,52 @@
+.illustrationA,
+.illustrationB {
+    margin-top: -6px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {max-width: 40%}
+    width: 100%;
+    padding-inline:  4rem;
+    &__container {
+        flex-basis: 30%;
+        padding: 6rem 2rem;
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h5 { 
+            font-size: .7rem;
+            font-weight: 400;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .illustrationA,
+    .illustrationB {
+        flex-direction: column;
+        img {
+            max-width:100%;
+        }
+    }
+
+    .illustrationA {
+        &__container {
+            order: 1;
+        }
+ 
+    }
+}
+
+.illustrationA {
+    background-color: var(--clr-neutral-100);
+}
+
+.illustrationB {
+    padding-block:6rem;
+}
+
+img.garnish {
+    width: 100%;
+}

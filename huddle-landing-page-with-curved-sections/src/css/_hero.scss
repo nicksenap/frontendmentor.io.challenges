@@ -1,0 +1,47 @@
+.hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family:'Open Sans', sans-serif;
+
+    &__header {
+        font-weight: 700;
+        padding-bottom: .7rem;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    &__description {
+        color: var(--clr-neutral-900);
+        font-weight: 400;
+        font-size:.7rem;
+        width: max(30%, 20rem);
+        text-align: center;
+    }
+
+    &__button {
+        background-color: var(--clr-primary-200);
+        text-decoration: none;
+        color: var(--clr-neutral-100);
+        border-radius: 2rem;
+        padding: 1rem 5rem;
+        font-size: 0.7rem;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 5px -2px rgb(153, 153, 158);
+    }
+
+    &__button:hover {
+        background-color: var(--clr-primary-100);
+    }
+
+    &__img {
+        max-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width:65%;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.signin {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-block: 5rem;
+    text-align: center;
+    .signin {
+    &__button {
+        background-color: var(--clr-primary-200);
+        text-decoration: none;
+        color: var(--clr-neutral-100);
+        border-radius: 2rem;
+        padding: 1rem 5rem;
+        font-size: 0.7rem;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 5px -2px rgb(153, 153, 158);
+    }
+    &__button:hover {
+        background-color: var(--clr-primary-100);
+    }
+};}
+
+@media only screen and (max-width: 600px) {
+    .signin { 
+        font-size: .8rem;
+    }
+}
