@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import { SafeAreaView, TouchableOpacity, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from './HomeScreen.style'
 import { ScoreBoard } from '../../components/ScoreBoard/ScoreBoard'
+import { GameBoard } from '../../components/GameBoard/GameBoard'
 import {
     useFonts,
     BarlowSemiCondensed_600SemiBold,
@@ -26,7 +28,12 @@ export const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScoreBoard></ScoreBoard>
+            <LinearGradient
+                colors={['hsl(214, 47%, 23%)', 'hsl(237, 49%, 15%)']}
+                style={styles.background}
+            />
+            <ScoreBoard />
+            <GameBoard />
             <TouchableOpacity onPress={handlePress}>
                 <Text style={styles.ruleText}>Rules</Text>
             </TouchableOpacity>

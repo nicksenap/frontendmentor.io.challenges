@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         fontFamily: 'BarlowSemiCondensed_700Bold',
         fontSize: 30,
         padding: 40,
+        color: 'hsl(229, 25%, 31%)',
     },
     ruleTextContainer: {},
     imageRules: {
