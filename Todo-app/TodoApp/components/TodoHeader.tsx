@@ -37,7 +37,12 @@ export const TodoHeader: React.FC<TodoHeaderProps> = props => {
 
 const styles = StyleSheet.create({
   fontAwesomeIcon: {color: 'white'},
-  imageBackground: {width: '100%', height: 200},
+  imageBackground: {
+    width: '100%',
+    height: 250,
+    justifyContent: 'center',
+    paddingBottom: 10,
+  },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

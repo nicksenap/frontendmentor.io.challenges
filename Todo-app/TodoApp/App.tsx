@@ -9,10 +9,11 @@
  */
 
 import React, {useState} from 'react';
-import {SafeAreaView, StatusBar, useColorScheme, View} from 'react-native';
+import {StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {TodoHeader} from './components/TodoHeader';
 import {TodoDisplayContainer} from './components/TodoDisplayContainer';
+import {TodoFilter} from './components/TodoFilter';
 import {data} from './mockData';
 import {Task} from './types/task';
 
@@ -32,23 +33,51 @@ const App = () => {
       TodoContent: content,
     };
     setTask([...task, t]);
-    console.log(task);
   };
 
+  const toggleTask = (id: number) => {
+    let index = task.findIndex(t => t.id === id);
+    if (index !== -1) {
+      let item = task[index];
+      item.isChecked = !item.isChecked;
+      setTask([...task.slice(0, index), item, ...task.slice(index + 1)]);
+    }
+  };
+
+  const clearCompleted = () => {
+    setTask(task.filter(t => !t.isChecked));
+  };
+
+  const removeTodo = (id: number) => {
+    setTask(task.filter(t => t.id !== id));
+  };
+
+  const taskLeft = task.filter(t => !t.isChecked).length;
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <View style={[backgroundStyle]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <TodoHeader addTask={addTask} />
-      <View style={{padding: 20, height: '100%'}}>
-        <TodoDisplayContainer task={task} setTask={setTask} />
+      <View style={styles.todoDisplayContainerWrapper}>
+        <TodoDisplayContainer
+          task={task}
+          toggleTask={toggleTask}
+          clearCompleted={clearCompleted}
+          taskLeft={taskLeft}
+          removeTodo={removeTodo}
+        />
+        <TodoFilter />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  todoDisplayContainerWrapper: {padding: 20, height: '100%'},
+});
 
 export default App;

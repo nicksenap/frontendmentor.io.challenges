@@ -16,6 +16,7 @@ export const TodoInput: React.FC<TodoInputProps> = props => {
         placeholder="Create a new todo.."
         onChangeText={setTodoValue}
         value={todoValue}
+        style={{height: '190%'}}
       />
       <TouchableOpacity
         onPress={() => {

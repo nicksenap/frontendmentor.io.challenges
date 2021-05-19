@@ -1,33 +1,30 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {Task} from '../types/task';
 import {TodoItem} from './TodoItem';
 import {BORDER_RADIUS} from '../utilities/constants';
 
 interface TodoDisplayContainerProps {
   task: Task[];
-  setTask: any;
+  toggleTask: (id:number) => void;
+  clearCompleted: () => void;
+  removeTodo: (id: number) => void;
+  taskLeft: number;
 }
 
 export const TodoDisplayContainer: React.FC<TodoDisplayContainerProps> = props => {
-  const taskLeft = props.task.filter(t => !t.isChecked).length;
+  
   const toggleCheck = (id: number) => {
-    let taskFound: Task = props.task.find(t => t.id === id);
-    if (taskFound) {
-      let newTaskList = [...props.task];
-      console.log(newTaskList);
-      newTaskList[id].isChecked = !newTaskList[id].isChecked;
-      props.setTask(newTaskList);
-    }
+    props.toggleTask(id);
   };
   return (
     <View style={styles.todoDisplayContainer}>
       {props.task.map((d, index) => {
-        return <TodoItem todoItem={d} key={index} toggleCheck={toggleCheck} />;
+        return <TodoItem todoItem={d} key={index} toggleCheck={toggleCheck} removeTodo={props.removeTodo} />;
       })}
       <View style={styles.summaryGroup}>
-        <Text> {taskLeft} items left </Text>
-        <Button title={'Clear Completed'} onPress={() => {}} />
+        <Text style={{color: 'lightgrey', fontSize: 15}}> {props.taskLeft} items left </Text>
+        <TouchableOpacity onPress={props.clearCompleted} style={{}}><Text style={{color: 'lightgrey'}}>Clear Completed </Text></TouchableOpacity>
       </View>
     </View>
   );
@@ -41,9 +38,10 @@ const styles = StyleSheet.create({
     top: -50,
   },
   summaryGroup: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: 'white',
+    padding: 20
   },
 });
