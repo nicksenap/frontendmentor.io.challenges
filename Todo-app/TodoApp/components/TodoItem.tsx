@@ -3,6 +3,11 @@ import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {checkboxStyle} from '../utilities/sharedStyles';
 import {Task} from '../types/task';
+import {
+  darkGreyishBlueLightTheme,
+  lightGreyishBlueLightTheme,
+  veryDarkGreyishBlueLightTheme,
+} from '../utilities/colors';
 
 export interface TodoDisplayPros {
   todoItem: Task;
@@ -31,7 +36,7 @@ export const TodoItem: React.FC<TodoDisplayPros> = props => {
       <TouchableOpacity onPress={() => props.removeTodo(props.todoItem.id)}>
         <FontAwesomeIcon
           icon={faTimes}
-          style={{color: 'lightgrey'}}
+          style={{color: darkGreyishBlueLightTheme}}
           // size={HEADER_FONT_SIZE}
         />
       </TouchableOpacity>
@@ -42,8 +47,9 @@ export const TodoItem: React.FC<TodoDisplayPros> = props => {
 const styles = StyleSheet.create({
   todoDisplayContainer: {
     flexDirection: 'row',
-    padding: 20,
-    borderColor: 'lightgrey',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderColor: lightGreyishBlueLightTheme,
     borderBottomWidth: 1,
     alignItems: 'center',
     backgroundColor: 'white',
@@ -51,11 +57,12 @@ const styles = StyleSheet.create({
   },
   TodoText: {
     fontSize: 12,
+    fontFamily: 'JosefinSans-Regular',
   },
   TodoTextDone: {
     textDecorationLine: 'line-through',
     textDecorationStyle: 'solid',
-    textDecorationColor: 'lightgrey',
-    color: 'lightgrey',
+    textDecorationColor: lightGreyishBlueLightTheme,
+    color: lightGreyishBlueLightTheme,
   },
 });

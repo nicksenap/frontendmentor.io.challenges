@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
-import {BORDER_RADIUS, HEADER_FONT_SIZE} from '../utilities/constants';
+import {BORDER_RADIUS} from '../utilities/constants';
+import {darkGreyishBlueLightTheme} from '../utilities/colors';
 
 export interface TodoInputProps {
   style: object;
@@ -16,7 +17,7 @@ export const TodoInput: React.FC<TodoInputProps> = props => {
         placeholder="Create a new todo.."
         onChangeText={setTodoValue}
         value={todoValue}
-        style={{height: '190%'}}
+        style={styles.todoTextInput}
       />
       <TouchableOpacity
         onPress={() => {
@@ -25,8 +26,7 @@ export const TodoInput: React.FC<TodoInputProps> = props => {
         }}>
         <FontAwesomeIcon
           icon={faPlus}
-          style={{color: 'lightgrey'}}
-          size={HEADER_FONT_SIZE}
+          style={{color: darkGreyishBlueLightTheme}}
         />
       </TouchableOpacity>
     </View>
@@ -44,4 +44,5 @@ const styles = StyleSheet.create({
     zIndex: 3,
     borderRadius: BORDER_RADIUS,
   },
+  todoTextInput: {height: '190%', fontFamily: 'JosefinSans-Regular'},
 });

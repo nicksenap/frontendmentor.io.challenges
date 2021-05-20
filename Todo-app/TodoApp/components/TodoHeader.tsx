@@ -65,5 +65,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: HEADER_FONT_SIZE,
     letterSpacing: LETTER_SPACING,
+    fontFamily: 'JosefinSans-Bold',
   },
 });

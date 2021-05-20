@@ -6,25 +6,35 @@ import {BORDER_RADIUS} from '../utilities/constants';
 
 interface TodoDisplayContainerProps {
   task: Task[];
-  toggleTask: (id:number) => void;
+  toggleTask: (id: number) => void;
   clearCompleted: () => void;
   removeTodo: (id: number) => void;
   taskLeft: number;
 }
 
 export const TodoDisplayContainer: React.FC<TodoDisplayContainerProps> = props => {
-  
   const toggleCheck = (id: number) => {
     props.toggleTask(id);
   };
   return (
     <View style={styles.todoDisplayContainer}>
       {props.task.map((d, index) => {
-        return <TodoItem todoItem={d} key={index} toggleCheck={toggleCheck} removeTodo={props.removeTodo} />;
+        return (
+          <TodoItem
+            todoItem={d}
+            key={index}
+            toggleCheck={toggleCheck}
+            removeTodo={props.removeTodo}
+          />
+        );
       })}
       <View style={styles.summaryGroup}>
-        <Text style={{color: 'lightgrey', fontSize: 15}}> {props.taskLeft} items left </Text>
-        <TouchableOpacity onPress={props.clearCompleted} style={{}}><Text style={{color: 'lightgrey'}}>Clear Completed </Text></TouchableOpacity>
+        <Text style={styles.itemLeftCountText}>
+          {props.taskLeft} items left
+        </Text>
+        <TouchableOpacity onPress={props.clearCompleted} style={{}}>
+          <Text style={styles.clearCompletedText}>Clear Completed</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -42,6 +52,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: 'white',
-    padding: 20
+    padding: 20,
   },
+  itemLeftCountText: {
+    color: 'lightgrey',
+    fontSize: 15,
+    fontFamily: 'JosefinSans-Regular',
+  },
+  clearCompletedText: {color: 'lightgrey', fontFamily: 'JosefinSans-Regular'},
 });
