@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useState, useContext, ContextType} from 'react';
 import {StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {TodoHeader} from './components/TodoHeader';
@@ -17,11 +17,14 @@ import {TodoFilter} from './components/TodoFilter';
 import {data} from './mockData';
 import {Task} from './types/task';
 import {filterType} from './types/filterType';
+import {ThemeContext, ThemeProvider} from './context/themeContext';
 
 const App = () => {
   const [task, setTask] = useState(data);
   const [taskForDisplay, setTaskForDisplay] = useState(data);
   const [filter, setFilter] = useState<filterType>('all');
+  const {dark, theme, toggle} = useContext(ThemeContext);
+  console.log(dark, theme);
 
   function getRandomArbitrary(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min) + min);
@@ -35,8 +38,9 @@ const App = () => {
       order: num,
       TodoContent: content,
     };
-    setTask([...task, t]);
-    setTaskForDisplay(task);
+    const newTask = [...task, t];
+    setTask(newTask);
+    setTaskForDisplay(newTask);
   };
 
   const toggleTask = (id: number) => {
@@ -44,12 +48,14 @@ const App = () => {
     if (index !== -1) {
       let item = task[index];
       item.isChecked = !item.isChecked;
-      setTask([...task.slice(0, index), item, ...task.slice(index + 1)]);
-      setTaskForDisplay(task);
+      const newTask = [...task.slice(0, index), item, ...task.slice(index + 1)];
+      setTask(newTask);
+      setTaskForDisplay(newTask);
     }
   };
 
   const changeFilter = (newVal: filterType) => {
+    setFilter(newVal);
     switch (newVal) {
       case 'all': {
         setTaskForDisplay(task);
@@ -67,36 +73,40 @@ const App = () => {
   };
 
   const clearCompleted = () => {
-    setTask(task.filter(t => !t.isChecked));
-    setTaskForDisplay(task);
+    const newTask = task.filter(t => !t.isChecked);
+    setTask(newTask);
+    setTaskForDisplay(newTask);
   };
 
   const removeTodo = (id: number) => {
-    setTask(task.filter(t => t.id !== id));
-    setTaskForDisplay(task);
+    const newTask = task.filter(t => t.id !== id);
+    setTask(newTask);
+    setTaskForDisplay(newTask);
   };
 
   const taskLeft = task.filter(t => !t.isChecked).length;
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = dark;
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <View style={[backgroundStyle]}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <TodoHeader addTask={addTask} />
-      <View style={styles.todoDisplayContainerWrapper}>
-        <TodoDisplayContainer
-          task={taskForDisplay}
-          toggleTask={toggleTask}
-          clearCompleted={clearCompleted}
-          taskLeft={taskLeft}
-          removeTodo={removeTodo}
-        />
-        <TodoFilter filterType={filter} changeFilter={changeFilter} />
+    <ThemeProvider>
+      <View style={[backgroundStyle]}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <TodoHeader addTask={addTask} />
+        <View style={styles.todoDisplayContainerWrapper}>
+          <TodoDisplayContainer
+            task={taskForDisplay}
+            toggleTask={toggleTask}
+            clearCompleted={clearCompleted}
+            taskLeft={taskLeft}
+            removeTodo={removeTodo}
+          />
+          <TodoFilter filter={filter} changeFilter={changeFilter} />
+        </View>
       </View>
-    </View>
+    </ThemeProvider>
   );
 };
 

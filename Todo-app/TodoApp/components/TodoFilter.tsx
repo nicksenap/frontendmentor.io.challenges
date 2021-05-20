@@ -6,21 +6,38 @@ import {filterType} from '../types/filterType';
 
 export interface TodoFilterProps {
   changeFilter: (newVal: filterType) => void;
-  filterType: filterType;
+  filter: filterType;
 }
 
-export const TodoFilter: FC<TodoFilterProps> = ({changeFilter, filterType}) => {
-  console.log(filterType);
+export const TodoFilter: FC<TodoFilterProps> = ({changeFilter, filter}) => {
   return (
     <View style={[styles.filterContainer]}>
       <TouchableOpacity onPress={() => changeFilter('all')}>
-        <Text style={[styles.filterText, styles.filterTextActive]}> All </Text>
+        <Text
+          style={[
+            styles.filterText,
+            filter === 'all' && styles.filterTextActive,
+          ]}>
+          All
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => changeFilter('active')}>
-        <Text style={styles.filterText}> Active </Text>
+        <Text
+          style={[
+            styles.filterText,
+            filter === 'active' && styles.filterTextActive,
+          ]}>
+          Active
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => changeFilter('completed')}>
-        <Text style={styles.filterText}> Completed </Text>
+        <Text
+          style={[
+            styles.filterText,
+            filter === 'completed' && styles.filterTextActive,
+          ]}>
+          Completed
+        </Text>
       </TouchableOpacity>
     </View>
   );

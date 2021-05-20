@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {checkboxStyle} from '../utilities/sharedStyles';
@@ -7,22 +7,32 @@ import {
   darkGreyishBlueLightTheme,
   lightGreyishBlueLightTheme,
   veryDarkGreyishBlueLightTheme,
+  veryDarkDesaturatedBlue,
+  lightGreyishBlue,
 } from '../utilities/colors';
+import {ThemeContext} from '../context/themeContext';
 
 export interface TodoDisplayPros {
   todoItem: Task;
   toggleCheck: (id: number) => void;
   removeTodo: (id: number) => void;
 }
+
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
+
 export const TodoItem: React.FC<TodoDisplayPros> = props => {
   const handlePress = () => {
     console.log(props.todoItem.id);
     props.toggleCheck(props.todoItem.id);
   };
+  const {dark} = useContext(ThemeContext);
   return (
-    <View style={styles.todoDisplayContainer}>
+    <View
+      style={[
+        styles.todoDisplayContainer,
+        dark ? styles.darkTheme : styles.lightTheme,
+      ]}>
       <BouncyCheckbox
         onPress={handlePress}
         isChecked={props.todoItem.isChecked}
@@ -49,11 +59,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 15,
-    borderColor: lightGreyishBlueLightTheme,
+
     borderBottomWidth: 1,
     alignItems: 'center',
-    backgroundColor: 'white',
+
     justifyContent: 'space-between',
+  },
+  lightTheme: {
+    backgroundColor: 'white',
+    borderColor: lightGreyishBlueLightTheme,
+  },
+  darkTheme: {
+    backgroundColor: veryDarkDesaturatedBlue,
+    borderColor: lightGreyishBlue,
   },
   TodoText: {
     fontSize: 12,
