@@ -1,7 +1,11 @@
+@use './color';
 .calc-header {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content:space-between;
     align-items: center;
+    &--theme-1 {
+        color: color.$color-theme1-key-text-white; 
+    }
 }

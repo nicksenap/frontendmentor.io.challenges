@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/style.scss'
 import { ThemeSwitcher } from "./components/themeSwitcher";
+import { CalcDisplay } from "./components/calcDisplay";
 import { useAppSelector } from "./app/hooks";
 import {
     selectTheme
@@ -12,10 +13,11 @@ function App() {
   return (
     <div className={`App App--${themeClassName}`}>
       <div className="calc-container">
-        <div className="calc-header">
+        <div className={`calc-header calc-header--${themeClassName}`}>
         <h1>calc</h1>
         <ThemeSwitcher/>
         </div>
+        <CalcDisplay />
       </div>
     </div>
   );

@@ -1,0 +1,19 @@
+@use './color';
+
+.calc-display {
+    &__container {
+        // width: 100%;
+        height: auto;
+        padding: 0.5rem 1.4rem;
+        border-radius:0.7rem;
+        display: flex;
+        justify-content: flex-end;
+        &--theme-1 {
+            background-color: color.$color-theme1-bg-3;
+            color: color.$color-theme1-key-text-white
+        }
+        
+    }
+
+
+}
