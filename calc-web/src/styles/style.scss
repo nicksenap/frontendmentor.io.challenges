@@ -1,0 +1,20 @@
+@use './font';
+@use './color';
+@use './header';
+@use './theme-switcher';
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+    box-sizing: border;
+   
+}
+.calc-container {
+    padding: 0.5rem;
+    padding-inline: 1rem;
+}
+.App {
+    &--theme-1 {
+        background-color: color.$color-theme1-bg-1;
+    }
+}

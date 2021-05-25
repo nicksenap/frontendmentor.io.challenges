@@ -1,0 +1,50 @@
+@use './color';
+
+.theme-switcher-container {
+    display: flex;
+    flex-direction: column;
+    &__label {
+        display: flex;
+        justify-content:space-between;
+        margin-left: 50%;
+        align-items: center;
+        margin-bottom: -2rem;
+        padding-inline: 0.5rem;
+    }
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:13px;
+    h5 {
+        text-transform: uppercase;
+    }
+    &__scroll {
+        background-color: color.$color-theme1-bg-2;
+        width: 3.5rem;
+        height: 1.5rem;
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        padding-inline: 0.3rem;
+        &--theme-1 {
+            justify-content: flex-start;
+        }
+        &--theme-2 {
+            justify-content: center;
+        }
+        &--theme-3 {
+            justify-content: flex-end;
+        }
+    }
+
+    &__ball {
+        background-color: color.$color-theme1-key-red;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 1rem;
+        filter: blur(1px);
+    }
+}
