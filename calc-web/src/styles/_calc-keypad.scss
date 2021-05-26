@@ -1,0 +1,16 @@
+@use './color';
+.calc-keypad {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.3rem;
+        border-radius:0.7rem;
+        margin-top: 2rem;
+        justify-content: center;
+
+        &--theme-1{
+            background-color: color.$color-theme1-bg-2 ;
+        }
+       
+    }
+}

@@ -3,6 +3,8 @@
 @use './header';
 @use './theme-switcher';
 @use './calc-display';
+@use './calc-keypad';
+@use './calc-key';
 
 html, body, #root, .App {
     height: 100%;

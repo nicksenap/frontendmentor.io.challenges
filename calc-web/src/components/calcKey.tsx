@@ -1,14 +1,16 @@
 import React, {FC} from 'react'
 
 interface CalcKeyProps {
-    display: string;
     value: string;
+    classParam: string;
 }
 
-export const CalcKey:FC<CalcKeyProps> = ({display, value}) => {
+export const CalcKey:FC<CalcKeyProps> = ({value, classParam}) => {
+    const keyClassName = `CalcKey CalcKey__${classParam} CalcKey__${classParam}--theme-1`;
     return (
-        <div className="CalcKey" onClick={() => console.log(value)}>
-            <h1> {display} </h1>
+        <div className={keyClassName} onClick={() => console.log(value)}>
+            {value === 'DEL' ? <h3> {value} </h3> :<h2> {value} </h2> }
+            
         </div>
     );
 }

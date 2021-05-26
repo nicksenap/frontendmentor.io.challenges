@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/style.scss'
 import { ThemeSwitcher } from "./components/themeSwitcher";
 import { CalcDisplay } from "./components/calcDisplay";
+import { CalcKeypad } from "./components/calcKeypad";
 import { useAppSelector } from "./app/hooks";
 import {
     selectTheme
@@ -18,6 +19,7 @@ function App() {
         <ThemeSwitcher/>
         </div>
         <CalcDisplay />
+        <CalcKeypad />
       </div>
     </div>
   );
