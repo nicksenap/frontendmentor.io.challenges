@@ -6,7 +6,7 @@ import {
 
 export const ThemeSwitcher = () => {
     const theme = useAppSelector(selectTheme);
-    const themeClassName = `theme-switcher__scroll--theme-${theme}`;
+    const themeClassName = `theme-${theme}`;
     const dispatch = useAppDispatch();
     const handleClick = () => {dispatch(toggleTheme())};
     return (
@@ -18,8 +18,8 @@ export const ThemeSwitcher = () => {
             </div>
             <div className="theme-switcher" onClick={handleClick}>
                 <h5>theme</h5>
-                <div className={`theme-switcher__scroll ${themeClassName}`}>
-                    <div className="theme-switcher__ball"></div>
+                <div className={`theme-switcher__scroll theme-switcher__scroll--${themeClassName}`}>
+                    <div className={`theme-switcher__ball theme-switcher__ball--${themeClassName}`}></div>
                 </div>
             </div>
         </div>

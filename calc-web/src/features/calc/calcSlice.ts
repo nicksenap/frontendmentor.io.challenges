@@ -7,7 +7,7 @@ export interface CalcState {
 }
 
 const initialState: CalcState = {
-    expresions: '',
+    expresions: '0',
     result: 0
 };
 
@@ -16,16 +16,20 @@ export const calclice = createSlice({
   initialState,
   reducers: {
     addExpression: (state, action) => {
+        if(state.expresions === '0' ) { state.expresions = ''}
         state.expresions += action.payload
     },
     removeExpression: (state) => {
         state.expresions = state.expresions.slice(0, -1);
+        if(state.expresions === '') { state.expresions = '0'}
     },
     getResult: (state) => {
-        state.result = eval(state.expresions);
+
+        state.result = eval(state.expresions.replaceAll('x', '*'));
+        state.expresions = state.result.toString();
     },
     resetExpression: (state) => {
-        state.expresions = '';
+        state.expresions = '0';
     }
   },
 });

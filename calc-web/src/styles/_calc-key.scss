@@ -2,6 +2,14 @@
 
 .CalcKey{
 
+    display: flex;    
+    justify-content:center;
+    align-items: center;
+    height: 3.8rem;
+    border-radius: 0.4rem;
+    margin-inline: 0.3rem;
+    margin-block: 0.7rem;
+
     &:active {
         box-shadow: none;
         margin-top: 0.9rem;
@@ -10,20 +18,22 @@
 
     &__little-key {
         flex-basis: 21%;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-
-        margin-inline: 0.3rem;
-        margin-block: 0.7rem;
-        height: 3.8rem;
-        border-radius: 0.4rem;
-
         &__function-key {
             &--theme-1 {
-                background-color: color.$color-theme1-key-light-orange;
-                box-shadow: 0px 5px 0px 0px color.$color-theme1-key-orange;
-                color: color.$color-theme1-key-text-blue;
+                background-color: color.$color-theme1-key-bg-blue;
+                box-shadow: 0px 5px 0px 0px color.$color-theme1-key-shadow-blue;
+                color: color.$color-theme1-key-text-white;
+            }
+
+            &--theme-2 {
+                background-color: color.$color-theme2-key-bg;
+                box-shadow: 0px 5px 0px 0px color.$color-theme2-key-shadow;
+                color: color.$color-theme1-key-text-white;
+            }
+            &--theme-3 {
+                background-color: color.$color-theme3-key-bg-1;
+                box-shadow: 0px 5px 0px 0px color.$color-theme3-key-shadow-1;
+                color: color.$color-theme3-key-text-1;
             }
         }
 
@@ -32,5 +42,65 @@
             box-shadow: 0px 5px 0px 0px color.$color-theme1-key-orange;
             color: color.$color-theme1-key-text-blue;
         }
+
+        &--theme-2 {
+            background-color: color.$color-theme2-key-light-yellow;
+            box-shadow: 0px 5px 0px 0px color.$color-theme2-key-dark-grey;
+            color: color.$color-theme1-key-text-blue;
+        }
+
+        &--theme-3 {
+            background-color: color.$color-theme3-key-bg-3;
+            box-shadow: 0px 5px 0px 0px color.$color-theme3-key-shadow-3;
+            color: color.$color-theme3-key-text-1;
+        }
+    }
+
+    &__large-key {
+        flex-basis: 45%;
+        &__function-key {
+            &--theme-1 {
+                background-color: color.$color-theme1-key-bg-blue;
+                box-shadow: 0px 5px 0px 0px color.$color-theme1-key-shadow-blue;
+                color: color.$color-theme1-key-text-white;
+            }
+
+            &--theme-2 {
+                background-color: color.$color-theme2-key-bg;
+                box-shadow: 0px 5px 0px 0px color.$color-theme2-key-shadow;
+                color: color.$color-theme1-key-text-white;
+            }
+
+            &--theme-3 {
+                background-color: color.$color-theme3-key-bg-1;
+                box-shadow: 0px 5px 0px 0px color.$color-theme3-key-shadow-1;
+                color: color.$color-theme3-key-text-1;
+            }
+        }
+        &__red-key {
+            &--theme-1 {
+                background-color: color.$color-theme1-key-red;
+                box-shadow: 0px 5px 0px 0px color.$color-theme1-key-dark-red;
+                color: color.$color-theme1-key-text-white;
+            }
+
+            &--theme-2 {
+                background-color: color.$color-theme2-key-orange;
+                box-shadow: 0px 5px 0px 0px color.$color-theme2-key-dark-orange;
+                color: color.$color-theme1-key-text-white;
+            }
+
+            &--theme-3 {
+                background-color: color.$color-theme3-key-bg-2;
+                box-shadow: 0px 5px 0px 0px color.$color-theme3-key-shadow-2;
+                color: color.$color-theme3-key-text-2;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .CalcKey{
+        &__large-key { flex-basis: 44%;}
     }
 }

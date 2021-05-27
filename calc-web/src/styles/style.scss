@@ -19,10 +19,27 @@ body {
 .calc-container {
     padding: 0.5rem;
     padding-inline: 1.5rem;
-    height: 100%;
+
+}
+
+@media only screen and (min-width: 768px) {
+    .calc-container {
+        margin-inline: 35%;
+        padding-inline: 1.5rem; 
+    }
 }
 .App {
+    height:auto;
+    min-height: 100%;
     &--theme-1 {
         background-color: color.$color-theme1-bg-1;
+    }
+
+    &--theme-2 {
+        background-color: color.$color-theme2-bg-1;
+    }
+
+    &--theme-3 {
+        background-color: color.$color-theme3-bg-1;
     }
 }

@@ -22,7 +22,6 @@
         text-transform: uppercase;
     }
     &__scroll {
-        background-color: color.$color-theme1-bg-2;
         width: 3.5rem;
         height: 1.5rem;
         border-radius: 2rem;
@@ -31,17 +30,28 @@
         padding-inline: 0.3rem;
         &--theme-1 {
             justify-content: flex-start;
+            background-color: color.$color-theme1-bg-2;
         }
         &--theme-2 {
             justify-content: center;
+            background-color: color.$color-theme2-bg-2;
         }
         &--theme-3 {
             justify-content: flex-end;
+            background-color: color.$color-theme3-bg-2;
         }
     }
 
     &__ball {
-        background-color: color.$color-theme1-key-red;
+        &--theme-1 {
+            background-color: color.$color-theme1-key-red;
+        }
+        &--theme-2 {
+            background-color: color.$color-theme2-key-orange;
+        }
+        &--theme-3 {
+            background-color: color.$color-theme3-key-bg-2;
+        }
         height: 1rem;
         width: 1rem;
         border-radius: 1rem;
