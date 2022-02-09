@@ -21,7 +21,14 @@ export const Card: React.FC<Comment> = (props) => {
                         <div className="card-author">{props.user.username}</div>
                         <div className="card-date">{props.createdAt}</div>
                     </div>
-                    <div className="card-content"> {props.content}</div>
+                    <div className="card-content">
+                        {props.replyingTo && (
+                            <div className="card-content__replyingTo">
+                                @{props.replyingTo}
+                            </div>
+                        )}
+                        {props.content}
+                    </div>
                 </div>
             </div>
         </div>
