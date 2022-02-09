@@ -7,7 +7,7 @@ node_js:
   - 7
   - 6
 before_install:
-  - cd rest-countries-api-with-color-theme-switcher-react-ts/
+  - cd interactive-comments-section/
 install:
   - yarn install
 script:
