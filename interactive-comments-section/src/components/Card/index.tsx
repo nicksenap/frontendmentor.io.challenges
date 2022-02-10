@@ -12,6 +12,7 @@ export const Card: React.FC<Comment> = (props) => {
             <div className="card-row">
                 <Pile score={score} updateScore={updateScore} />
                 <div className="card-body">
+                    <div className="card-author-row">
                     <div className="card-author-date">
                         <img
                             src="https://i.ibb.co/BZqhB8m/image-amyrobson.png"
@@ -20,6 +21,8 @@ export const Card: React.FC<Comment> = (props) => {
                         />
                         <div className="card-author">{props.user.username}</div>
                         <div className="card-date">{props.createdAt}</div>
+                    </div>
+                    <div className="card-reply-and-delete"></div>
                     </div>
                     <div className="card-content">
                         {props.replyingTo && (
