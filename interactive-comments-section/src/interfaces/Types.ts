@@ -1,24 +1,29 @@
 export interface RootType {
     currentUser: User;
-    comments:    Comment[];
+    comments: Comment[];
 }
 
 export interface Comment {
-    id:          number;
-    content:     string;
-    createdAt:   string;
-    score:       number;
-    user:        User;
-    replies?:    Comment[];
+    id: number;
+    content: string;
+    createdAt: string | number;
+    score: number;
+    user: User;
+    replies?: Comment[];
     replyingTo?: string;
 }
 
 export interface User {
-    image:    Image;
+    image?: Image;
     username: string;
 }
 
 export interface Image {
-    png:  string;
+    png: string;
     webp: string;
+}
+
+export enum CommentType {
+    Comment,
+    Reply
 }

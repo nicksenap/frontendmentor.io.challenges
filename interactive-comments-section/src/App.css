@@ -88,6 +88,18 @@ body,
     padding-bottom: 1rem;
 }
 
+.you-tag {
+    background-color: var(--moderateBlue);
+    color: var(--veryLightGray);
+    font-weight: 700;
+    padding-inline: 0.5rem;
+    padding-block: 0.2rem;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    text-transform: lowercase;
+
+}
+
 .card-date {
     color: var(--grayishBlue);
 }
