@@ -1,0 +1,7 @@
+@use "styles/colors";
+
+.toggle {
+  background: linear-gradient(0.5turn, colors.$toggle-1, colors.$toggle-2);
+  border-radius: 1rem;
+  
+}

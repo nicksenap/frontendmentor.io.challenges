@@ -26,7 +26,8 @@ const defaultState: IAppContext = {
   },
   addComment: function(content: string): void {
     throw new Error("Function not implemented.");
-  }
+  },
+  showDeleteModal: false
 };
 
 export const AppContext = createContext<IAppContext>(defaultState);
@@ -36,6 +37,7 @@ const AppProvider: React.FC = ({ children }) => {
     defaultState.commentData
   );
   const [currentUser] = useState(commentData.currentUser);
+  const [showDeleteModal, SetShowDeleteModal] = useState(false);
 
   const createComment = (content: string, replyTo?: string) => {
     return {
@@ -94,7 +96,8 @@ const AppProvider: React.FC = ({ children }) => {
         commentData,
         currentUser,
         deleteComment,
-        addComment
+        addComment,
+        showDeleteModal
       }}
     >
       {children}
